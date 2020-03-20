@@ -40,10 +40,6 @@ public class PatientServiceImpl implements PatientService {
 		vitalParamList.add(vitalParam);
 		patient.setVitalParam(vitalParamList);
 		return patientRepository.save(patient);
-	
-	
-	
-	
 	}
 
 	@Override
