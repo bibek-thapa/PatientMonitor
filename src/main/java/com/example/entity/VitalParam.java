@@ -1,5 +1,6 @@
 package com.example.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,23 +10,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
+@Data
 @Entity
 @Table(name = "vitalparam_tbl")
-public class VitalParam {
+public class VitalParam implements Serializable {
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -47,6 +45,12 @@ public class VitalParam {
 	
 	@Column 
 	private Date date;
+	
+	
+
+	public VitalParam() {
+		super();
+	}
 
 	public VitalParam(Integer temperature, Integer heartRate, Integer bloodPressureHigh, Integer bloodPressureLow,
 			Integer respiratoryRate, Date date) {

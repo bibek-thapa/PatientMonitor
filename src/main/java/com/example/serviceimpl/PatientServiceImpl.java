@@ -37,9 +37,13 @@ public class PatientServiceImpl implements PatientService {
 		patientMap = patientDataGenerator.getData();
 		
 		VitalParam vitalParam= new VitalParam(patientMap.get("temperature"),patientMap.get("heartRate"),patientMap.get("bloodPressureHigh"),patientMap.get("bloodPressureLow"),patientMap.get("respiratoryRate"),new Date());
-		vitalParamList.add(vitalParam);
-		patient.setVitalParam(vitalParamList);
+		
+		
+			vitalParamList.add(vitalParam);
+			patient.setVitalParam(vitalParamList);
+		
 		return patientRepository.save(patient);
+		
 	}
 
 	@Override

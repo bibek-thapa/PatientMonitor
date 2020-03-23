@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,20 +19,17 @@ public class PatientController {
 	PatientServiceImpl patientService;
 
 	@PostMapping(path = "/insert")
-	public String insertData() 
+	public Patient insertData(@RequestBody Patient patient) 
 	{
-		Patient patient = new Patient();
-		patient.setFirstName("Ram");
-		patient.setLastName("Karki");
-		patient.setEmail("ramkarki@gmail.com");
 		
-		return patientService.insert(patient).toString();
+		
+		return patientService.insert(patient);
 	}
 	
 	@GetMapping(path = "/{id}",produces = "application/json")
-	public String getPatientData(@PathVariable("id")Long id) 
+	public Patient getPatientData(@PathVariable("id")Long id) 
 	{
-		return patientService.getById(id).toString();
+		return patientService.getById(id);
 	}
 
 

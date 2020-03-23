@@ -7,5 +7,7 @@ import com.example.entity.Patient;
 
 @Repository
 public interface PatientRepostitory extends JpaRepository<Patient, Long> {
+	
+	Patient findByEmail(String email);
 
 }
