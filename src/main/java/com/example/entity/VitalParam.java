@@ -26,6 +26,7 @@ public class VitalParam implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "viatalparam_id")
 	private Long id;
 	
 	@Column
@@ -69,6 +70,63 @@ public class VitalParam implements Serializable {
 				+ bloodPressureHigh + ", bloodPressureLow=" + bloodPressureLow + ", respriatoryRate=" + respiratoryRate
 				+ ", date=" + date + "]";
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Integer getTemperature() {
+		return temperature;
+	}
+
+	public void setTemperature(Integer temperature) {
+		this.temperature = temperature;
+	}
+
+	public Integer getHeartRate() {
+		return heartRate;
+	}
+
+	public void setHeartRate(Integer heartRate) {
+		this.heartRate = heartRate;
+	}
+
+	public Integer getBloodPressureHigh() {
+		return bloodPressureHigh;
+	}
+
+	public void setBloodPressureHigh(Integer bloodPressureHigh) {
+		this.bloodPressureHigh = bloodPressureHigh;
+	}
+
+	public Integer getBloodPressureLow() {
+		return bloodPressureLow;
+	}
+
+	public void setBloodPressureLow(Integer bloodPressureLow) {
+		this.bloodPressureLow = bloodPressureLow;
+	}
+
+	public Integer getRespiratoryRate() {
+		return respiratoryRate;
+	}
+
+	public void setRespiratoryRate(Integer respiratoryRate) {
+		this.respiratoryRate = respiratoryRate;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	
 	
 	
 

@@ -5,7 +5,7 @@ import java.util.List;
 public interface GenericService<T> {
 	
 	 public List<T> getAll();
-	   public T insert(T c);
+	   public void insert(T c);
 	    public T getById(Long id);
 	    public T delete(Long id);
 	    public T update(T c);

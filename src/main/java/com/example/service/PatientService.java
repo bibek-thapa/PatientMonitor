@@ -1,7 +1,7 @@
 package com.example.service;
 
-import com.example.entity.Patient;
+import com.example.dto.PatientDTO;
 
-public interface PatientService extends GenericService<Patient>{
+public interface PatientService extends GenericService<PatientDTO>{
 
 }
