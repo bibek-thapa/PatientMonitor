@@ -79,6 +79,7 @@ public class PatientServiceImpl implements PatientService {
 
 	@Override
 	public PatientDTO getById(Long id) {
+		
 		logger.info("GET request for patient {} with data {}" , id);
 		Patient patient = patientRepository.findById(id).get();
 		PatientDTO patientDTO = PatientDTO.valueOF(patient);

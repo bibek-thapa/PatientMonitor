@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.example.entity.Patient;
 import com.example.entity.PatientVitalParam;
-import com.example.entity.VitalParam;
 
 public class PatientDTO {
 
