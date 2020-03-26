@@ -10,6 +10,7 @@ public interface GenericService<T> {
 	    public T delete(Long id);
 	    public T update(T c);
 	    public T getByName(String name);
+	   
 
 
 }

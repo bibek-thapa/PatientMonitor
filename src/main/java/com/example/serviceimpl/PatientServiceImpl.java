@@ -1,25 +1,23 @@
 package com.example.serviceimpl;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.entity.Patient;
-import com.example.entity.VitalParam;
-import com.example.generator.PatientDataGenerator;
-import com.example.repository.PatientRepostitory;
+import com.example.repository.PatientRepository;
+import com.example.repository.VitalRepository;
 import com.example.service.PatientService;
 
 @Service
 public class PatientServiceImpl implements PatientService {
 	
 	@Autowired
-	PatientRepostitory patientRepository;
+	PatientRepository patientRepository;
+	
+	@Autowired
+	VitalRepository vitalRepository;
 
 	@Override
 	public List<Patient> getAll() {
@@ -29,18 +27,6 @@ public class PatientServiceImpl implements PatientService {
 
 	@Override
 	public Patient insert(Patient patient) {
-		
-
-		Map<String,Integer> patientMap = new HashMap<>();
-		List<VitalParam> vitalParamList = new ArrayList<>();
-		PatientDataGenerator patientDataGenerator = new PatientDataGenerator();
-		patientMap = patientDataGenerator.getData();
-		
-		VitalParam vitalParam= new VitalParam(patientMap.get("temperature"),patientMap.get("heartRate"),patientMap.get("bloodPressureHigh"),patientMap.get("bloodPressureLow"),patientMap.get("respiratoryRate"),new Date());
-		
-		
-			vitalParamList.add(vitalParam);
-			patient.setVitalParam(vitalParamList);
 		
 		return patientRepository.save(patient);
 		
@@ -68,5 +54,7 @@ public class PatientServiceImpl implements PatientService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 
 }
